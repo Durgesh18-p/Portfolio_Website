@@ -1,5 +1,11 @@
+import "./styles/app.scss";
+
 function App() {
-  return <></>;
+  return (
+    <>
+      <h1>App component</h1>
+    </>
+  );
 }
 
 export default App;
