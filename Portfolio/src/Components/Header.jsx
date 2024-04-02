@@ -1,40 +1,47 @@
 /* eslint-disable react/prop-types */
+import { useState } from "react";
 import { AiOutlineMenu } from "react-icons/ai";
 
-const Header = ({ setMenuOpen, menuOpen }) => {
+const Header = () => {
+  const [menuOpen, setMenuOpen] = useState(false);
+
   return (
     <>
       <nav>
-        <NavContent setMenuOpen={setMenuOpen} />
+        <NavContent menuOpen={menuOpen} />
       </nav>
 
-      <button className="navBtn" onClick={() => setMenuOpen(!menuOpen)}>
+      <button
+        className="navBtn"
+        onClick={() => {
+          setMenuOpen(!menuOpen);
+          console.log("clicked");
+        }}
+      >
         <AiOutlineMenu />
       </button>
     </>
   );
 };
 
-export const HeaderPhone = ({ menuOpen, setMenuOpen }) => {
-  const handleResumeDownload = () => {
-    const resumeUrl =
-      "https://drive.google.com/file/d/1duz4ioysjxf6bfToRhYxAgoSiWtlKThk/view?usp=drivesdk";
-    window.open(resumeUrl);
-  };
+export const HeaderPhone = ({ menuOpen }) => {
   return (
     <div className={`navPhone ${menuOpen ? "navPhoneComes" : ""}`}>
-      <NavContent
-        setMenuOpen={setMenuOpen}
-        handleResumeDownload={handleResumeDownload}
-      />
+      <NavContent menuOpen={menuOpen} />
     </div>
   );
 };
 
-const NavContent = ({ setMenuOpen, handleResumeDownload }) => (
+const handleResumeDownload = () => {
+  const resumeUrl =
+    "https://drive.google.com/file/d/1duz4ioysjxf6bfToRhYxAgoSiWtlKThk/view?usp=drivesdk";
+  window.open(resumeUrl);
+};
+
+const NavContent = ({ setMenuOpen, menuOpen }) => (
   <>
     <h2>Durgesh.</h2>
-    <div>
+    <div className={`menu ${menuOpen ? "show" : ""}`}>
       <a onClick={() => setMenuOpen(false)} href="#home">
         Home
       </a>
@@ -50,18 +57,16 @@ const NavContent = ({ setMenuOpen, handleResumeDownload }) => (
       <a onClick={() => setMenuOpen(false)} href="#contact">
         Contact
       </a>
-    </div>
-    <a href="mailto:suryadurgesh18@gmail.com">
-      <button>Email</button>
-      <button
-        style={{
-          marginLeft: "10px",
-        }}
-        onClick={handleResumeDownload}
-      >
+      <a href="mailto:suryadurgesh18@gmail.com">
+        <button className="resume">Email</button>
+      </a>
+      <button className="resume" onClick={() => handleResumeDownload()}>
         Resume
       </button>
-    </a>
+    </div>
+    {/* <a href="mailto:suryadurgesh18@gmail.com">
+      <button>Email</button>
+    </a> */}
   </>
 );
 

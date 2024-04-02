@@ -29,6 +29,12 @@ nav {
     }
   }
 
+.show a {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
   > a > button {
     border: 1px solid $color6_1;
     padding: 0.5rem 2rem;
@@ -43,6 +49,21 @@ nav {
       color: $color4;
     }
   }
+}
+
+.resume{
+  border: 1px solid $color6_1;
+    padding: 0.5rem 2rem;
+    background-color: $color1;
+    cursor: pointer;
+    color: $color6;
+    letter-spacing: 1px;
+    font-weight: 500;
+    transition: all 0.3s;
+    &:hover {
+      background-color: $color6;
+      color: $color4;
+    }
 }
 
 .navBtn {
