@@ -12,7 +12,7 @@ const Footer = () => {
       <div>
         <img src={profile} alt="Founder" />
 
-        <h2>Suryawanshi Durgesh</h2>
+        <h2>Suryawanshi Durgesh.</h2>
       </div>
 
       <aside>

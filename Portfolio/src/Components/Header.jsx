@@ -3,12 +3,12 @@ import { useState } from "react";
 import { AiOutlineMenu } from "react-icons/ai";
 
 const Header = () => {
-  const [menuOpen, setMenuOpen] = useState(false);
+  const [menuOpen, setMenuOpen] = useState(true);
 
   return (
     <>
       <nav>
-        <NavContent menuOpen={menuOpen} />
+        <NavContent menuOpen={menuOpen} setMenuOpen={setMenuOpen} />
       </nav>
 
       <button
@@ -24,10 +24,10 @@ const Header = () => {
   );
 };
 
-export const HeaderPhone = ({ menuOpen }) => {
+export const HeaderPhone = ({ menuOpen, setMenuOpen }) => {
   return (
     <div className={`navPhone ${menuOpen ? "navPhoneComes" : ""}`}>
-      <NavContent menuOpen={menuOpen} />
+      <NavContent menuOpen={menuOpen} setMenuOpen={setMenuOpen} />
     </div>
   );
 };
@@ -38,7 +38,7 @@ const handleResumeDownload = () => {
   window.open(resumeUrl);
 };
 
-const NavContent = ({ setMenuOpen, menuOpen }) => (
+const NavContent = ({ menuOpen, setMenuOpen }) => (
   <>
     <h2>Durgesh.</h2>
     <div className={`menu ${menuOpen ? "show" : ""}`}>
@@ -60,13 +60,16 @@ const NavContent = ({ setMenuOpen, menuOpen }) => (
       <a href="mailto:suryadurgesh18@gmail.com">
         <button className="resume">Email</button>
       </a>
-      <button className="resume" onClick={() => handleResumeDownload()}>
+      <button
+        className="resume"
+        onClick={() => {
+          handleResumeDownload();
+          setMenuOpen(false);
+        }}
+      >
         Resume
       </button>
     </div>
-    {/* <a href="mailto:suryadurgesh18@gmail.com">
-      <button>Email</button>
-    </a> */}
   </>
 );
 
