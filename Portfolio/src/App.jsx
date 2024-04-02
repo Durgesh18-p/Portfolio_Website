@@ -4,6 +4,9 @@ import Home from "./Components/Home";
 import Work from "./Components/Work";
 import Timeline from "./Components/Timeline";
 import Services from "./Components/Services";
+import Contact from "./Components/Contact";
+import { Toaster } from "react-hot-toast";
+import Footer from "./Components/Footer";
 
 function App() {
   return (
@@ -13,6 +16,9 @@ function App() {
       <Work />
       <Timeline />
       <Services />
+      <Contact />
+      <Toaster />
+      <Footer />
     </>
   );
 }
