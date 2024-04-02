@@ -16,14 +16,22 @@ const Header = ({ setMenuOpen, menuOpen }) => {
 };
 
 export const HeaderPhone = ({ menuOpen, setMenuOpen }) => {
+  const handleResumeDownload = () => {
+    const resumeUrl =
+      "https://drive.google.com/file/d/1duz4ioysjxf6bfToRhYxAgoSiWtlKThk/view?usp=drivesdk";
+    window.open(resumeUrl);
+  };
   return (
     <div className={`navPhone ${menuOpen ? "navPhoneComes" : ""}`}>
-      <NavContent setMenuOpen={setMenuOpen} />
+      <NavContent
+        setMenuOpen={setMenuOpen}
+        handleResumeDownload={handleResumeDownload}
+      />
     </div>
   );
 };
 
-const NavContent = ({ setMenuOpen }) => (
+const NavContent = ({ setMenuOpen, handleResumeDownload }) => (
   <>
     <h2>Durgesh.</h2>
     <div>
@@ -45,6 +53,14 @@ const NavContent = ({ setMenuOpen }) => (
     </div>
     <a href="mailto:suryadurgesh18@gmail.com">
       <button>Email</button>
+      <button
+        style={{
+          marginLeft: "10px",
+        }}
+        onClick={handleResumeDownload}
+      >
+        Resume
+      </button>
     </a>
   </>
 );
