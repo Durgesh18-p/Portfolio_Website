@@ -3,11 +3,11 @@ import { useState } from "react";
 import { AiOutlineMenu } from "react-icons/ai";
 
 const Header = () => {
-  const [menuOpen, setMenuOpen] = useState(true);
+  const [menuOpen, setMenuOpen] = useState(false);
 
   return (
     <>
-      <nav>
+      <nav style={{ borderBottom: "1px solid black" }}>
         <NavContent menuOpen={menuOpen} setMenuOpen={setMenuOpen} />
       </nav>
 
