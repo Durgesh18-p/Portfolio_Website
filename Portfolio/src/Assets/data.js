@@ -2,6 +2,7 @@ import newsen from "./newsen.mp4"
 import bon from "./bought_or_bot.mp4"
 import crud from "./crud_app.mp4"
 import advice from "./advice_app.mp4"
+import yt from "./yt.mp4"
 
 
 export const Projects = [{
@@ -32,4 +33,11 @@ export const Projects = [{
   "url" : "https://github.com/Durgesh18-p/Advice-App",
   "imgSrc": advice,
   "skills" : 'React JS, CSS, API'
+},{
+  
+  "title": "ContentHub",
+  "description": "Video player app using React JS , Material aUI and YouTube API",
+  "url" : "https://video-content-app.netlify.app/",
+  "imgSrc": yt,
+  "skills" : 'React JS, Material UI, API'
 },]
